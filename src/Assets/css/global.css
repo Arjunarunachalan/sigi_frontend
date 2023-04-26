@@ -1,0 +1,19 @@
+
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body{
+
+}
+
+.input {
+        border: 1px solid rgba(0, 0, 0, 0.192);
+        padding: 7px 12px;
+        font-size: 14px;
+        border-radius: 10px;
+}
+.label{
+    display: block;
+    margin-bottom: 8px;
+}
