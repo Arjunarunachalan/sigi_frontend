@@ -7,8 +7,7 @@ import IndexRouter from './Routes/Route';
 function App() {
   return (
     <>
-    <Signup/>
-   {/* <IndexRouter /> */}
+     <IndexRouter />
     </>
   );
 }
