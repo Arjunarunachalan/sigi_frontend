@@ -36,9 +36,9 @@ const Signup = () => {
     let cnfpassworderr=""
     
 
-    if(!formData.name && formData.name == ''){
+    if(!formData.name && formData.name === ''){
      nameErr="enter a name "
-    
+    }
     if(!formData.email){
       mailErr="enter a mail "
     }
@@ -56,20 +56,18 @@ const Signup = () => {
       return false;
     }
     return true;
-  }
-  }
+
+}
 
 
   const handleSubmit = (e)=>{
     e.preventDefault()
     //validation statements
    let isValid = validateForm()
+   console.log(isValid)
 if(isValid){
   alert()
 }
-  
-
-
 }
 
 return (

@@ -17,5 +17,5 @@ const IndexRouter = () => {
   )
 }
 
-export default Route
+export default IndexRouter
 
