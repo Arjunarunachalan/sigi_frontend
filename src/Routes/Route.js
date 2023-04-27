@@ -2,19 +2,19 @@ import React from 'react'
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
 import Signup from '../Components/Signup/Signup'
 import ShopRoute from './ShopRoute'
-const Rote = () => {
+const IndexRouter = () => {
   return (
-    <div>
+
     <BrowserRouter>
     <Routes>
-        <Rote path="/sugnup" element={Signup} />
+        <Route path="/signup" element={<Signup />} />
+    {/* <ShopRoute /> */}
     </Routes>
     </BrowserRouter>
-    <ShopRoute />
     
     
-    </div>
+  
   )
 }
 
-export default Rote
+export default IndexRouter
