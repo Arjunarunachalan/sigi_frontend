@@ -2,6 +2,7 @@ import React from "react";
 import "./Signup.css";
 
 const Signup = () => {
+  
   return (
     <>
      <div className="bg-slate-200 w-full h-screen flex justify-center items-center">
