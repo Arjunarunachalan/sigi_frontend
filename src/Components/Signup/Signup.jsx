@@ -121,7 +121,7 @@ return (
           <div className="mb-4 flex">
             <input type="checkbox" name="role" id="role" onChange={handleChange} />
             <label htmlFor="role" className="role">
-              Signup As Shope
+              Signup As Shop
             </label>
           </div>
           <div className="mb-4">

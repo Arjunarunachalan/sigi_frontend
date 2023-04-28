@@ -4,10 +4,6 @@
     font-size: 14px;
 }
 
-body{
-
-}
-
 .input {
     width: 100%;
         border: 1px solid rgba(0, 0, 0, 0.192);
@@ -31,4 +27,7 @@ body{
     justify-content: center;
     align-items: center;
 }
-
+.column{
+    text-align: center;
+      
+}
