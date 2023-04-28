@@ -22,9 +22,7 @@ const Topbar = () => {
           </button>
         </div>
       </div>
-      {/* <div className="bg-white shadow-lg w-[100px] h-full">
-        side
-        </div> */}
+      
     </div>
   );
 };
