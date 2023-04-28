@@ -1,0 +1,6 @@
+.nav-link:hover{
+    background: lightgreen;
+    color: white;
+}
+.nav-link:hover span{
+}

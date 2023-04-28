@@ -12,10 +12,10 @@ const Signup = () => {
 
   const[FormError,setFormError]=useState({
     nameErr: "",
-    mailErr: "",
-    passErr: "",
-    cnfpassworderr: "",
-    roleerr:""
+    emailErr: "",
+    passwordErr: "",
+    cnfpasswordErr: "",
+    roleErr:""
   })
   //handle form fields changes
   const handleChange = (e)=>{
@@ -31,32 +31,33 @@ const Signup = () => {
 
   const validateForm = ()=>{
     let nameErr =""
-    let mailErr=""
-    let passErr=""
-    let cnfpassworderr=""
+    let emailErr=""
+    let passwordErr=""
+    let cnfpasswordErr=""
     
-
     if(!formData.name && formData.name == ''){
-     nameErr="enter a name "
+     nameErr="Enter a name "
+    }
     
-    if(!formData.email){
-      mailErr="enter a mail "
+    if(!formData.email && formData.email == ''){
+      emailErr="Enter a mail "
     }
-    if(!formData.password){
-      passErr="enter a valid password"
+    console.log(formData.password);
+    if( formData.password == "" || formData.password.length<6){
+      passwordErr="Enter a valid password"
     }
-    if(formData.password===formData.cnfpassword){
-      cnfpassworderr="password must be same "
+    if(formData.password != formData.cnfpassword){
+      cnfpasswordErr="Password must be same "
     }
-    if (nameErr || mailErr || passErr || cnfpassworderr){
+    if (nameErr || emailErr || passwordErr || cnfpasswordErr){
       setFormError({
         ...FormError,
-         nameErr, mailErr, passErr , cnfpassworderr,
+         nameErr, emailErr, passwordErr , cnfpasswordErr,
       });
       return false;
     }
     return true;
-  }
+  
   }
 
 
@@ -85,14 +86,14 @@ return (
               Name  
             </label>
             <input type="text" name="name" id="name" className="input" onChange={handleChange} />
-            <span className="nameerr"> {FormError.nameErr}</span>
+            <span className="nameerr text-red-500"> {FormError.nameErr}</span>
           </div>
           <div className="mb-4">
             <label htmlFor="" className="label">
               Email
             </label>
             <input type="text" name="email" id="email" className="input" onChange={handleChange} />
-            <span className="mailerr" id="mailerr"></span>
+            <span className="mailerr text-red-500" id="mailerr">{FormError.emailErr}</span>
           </div>
           <div className="mb-4">
             <label htmlFor="password" className="label">
@@ -105,7 +106,7 @@ return (
               className="input"
               onChange={handleChange}
             />
-            <span className="passerr" id="passerr"></span>
+            <span className="passerr text-red-500" id="passerr">{FormError.passwordErr}</span>
           </div>
           <div className="mb-4">
             <label htmlFor="cnfpassword" className="label">
@@ -118,7 +119,7 @@ return (
               className="input"
               onChange={handleChange}
             />
-            <span className="cnfpassworderr" id="cnfpassworderr"></span>
+            <span className="cnfpassworderr text-red-500" id="cnfpassworderr">{FormError.cnfpasswordErr}</span>
           </div>
           <div className="mb-4 flex">
             <input type="checkbox" name="role" id="role" onChange={handleChange} />
