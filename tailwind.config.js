@@ -4,7 +4,11 @@ module.exports = {
   theme: {
     extend: {},
     colors: {
+      'hover-color':'#79b59a',
       'primary-green': '#2c8176',
+    
+    
+      
     },
   },
   plugins: [],
