@@ -12,7 +12,7 @@ const Sidebar = () => {
       link: "/",
     },
     {
-      icon: <ProductIcon />,
+      icon: <ProductIcon fill="#66CE69" />,
       title: "Products",
       link: "/products",
     },
@@ -29,12 +29,12 @@ const Sidebar = () => {
               <div
                 role="button"
                 onClick={()=>navigateToHref(data.link)}
-                className={`w-full flex justify-start items-center px-6 py-3 bg-primary-green rounded-[10px] ${
+                className={`w-full flex justify-start items-center px-6 py-3 rounded ${
                   window.location.pathname == data.link && "bg-hover-color-400"
                 } ${Styles["nav-link"]}`}
               >
                 {data.icon}
-                <span className="ml-4 font-semibold tracking-wider"> {data.title} </span> 
+                <span className="ml-4 font-semibold tracking-wider text-red-500"> {data.title} </span> 
               </div>
           </li>
         ))}
