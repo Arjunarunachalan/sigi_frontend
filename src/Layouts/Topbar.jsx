@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import Notification from "../Components/Icons/Notification";
 import ProfileIcon from "../Components/Icons/ProfileIcon";
 import ProfileItems from "./ProfileItems";
-import { Link, NavLink } from "react-router-dom";
+
 
 const Topbar = () => {
   const [profile, setprofile] = useState(false);
