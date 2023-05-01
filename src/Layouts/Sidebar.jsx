@@ -30,7 +30,7 @@ const Sidebar = () => {
                 role="button"
                 onClick={()=>navigateToHref(data.link)}
                 className={`w-full flex justify-start items-center px-6 py-3 bg-primary-green rounded-[10px] ${
-                  window.location.pathname == data.link && "bg-green-400"
+                  window.location.pathname == data.link && "bg-hover-color-400"
                 } ${Styles["nav-link"]}`}
               >
                 {data.icon}
