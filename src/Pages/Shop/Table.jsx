@@ -1,42 +1,53 @@
 import React from 'react'
+import './Table.css'
 
 
-const Table = (props) => {
-    const item=props.tbody
+const Table = ({data=null,columns}) => {
+   
   return (
-    <div>
-      <div className='w-full h-screen p-4'>
-                <div className='w-full h-[100px] flex justify-end items-center p-2'>
-                    <button className="bg-[#2c8176] hover:bg-[#5e9a91] text-white font-bold py-2 px-4 h-[35px] rounded">Add Product</button>
-                </div>
-                <div>
-                    <table className='w-[90%]'>
-                        <thead >
-                            <tr className='bg-[#2c817667]'>
-                                <th className='head'>Sl.no</th>
-                                <th className='head'>Name</th>
-                                <th className='head'>Price</th>
-                                <th className='head'>Category</th>
-                                <th className='head'>Image</th>
-                                <th className='head'> </th>
-                            </tr>
-                        </thead>
-
-                        <tbody >
-                            <tr>
-                                {item.map(prod=>{
-                                    return(
-                                        
-                                    <td className='text-center'>{prod}</td>
-                                    
-                                    )
-                                })}
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-            </div>
+    <div className='p-4 w-4/6 m-8'>
+        <div className='flex justify-end mb-8'>
+        <button className="bg-primary-green font-bold py-2 px-4 border border-blue-700 rounded">
+  ADD Product
+</button>
+        </div>
+      <table className='w-full p-4'>
+        <thead>
+            <tr className='border-solid- border-b-4 '>
+                {data &&columns.map((row)=>{
+                    return(
+                    <th>{row.header}</th>
+                    )
+                })}
+            </tr>
+        </thead>
+        <tbody>
+            {data &&
+            data.map((row)=>{
+                return(
+                <tr key={row.id} className='border-gray-50 border-solid border-b-2 border-light-gray-300'>
+                    {columns.map(col=>{
+                        console.log(col.field)
+                        if(col.field=='image'){
+                            return(
+                                <div className=' flex justify-center' >
+                            <td><img src={row[col.field]} style={{width:"80px", height:"50px"}}></img></td>
+                            </div>)
+                        }else{
+                            return(<td className='text-center'>{row[col.field]}</td>)}
+                        })}
+                        
+                    
+                    
+                </tr>
+           ) })}
+        </tbody>
+        
+      </table>
+      <div>
+      {data?null:<p>No products to display</p>}
+      </div>
+      
     </div>
   )
 }
