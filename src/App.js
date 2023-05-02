@@ -6,12 +6,7 @@ import Topbar from './Layouts/Topbar';
 import IndexRouter from './Routes/Route';
 
 function App() {
-  return (
-
-     <IndexRouter />
-
-  );
+  return <IndexRouter />;
 }
 
 export default App;
-
