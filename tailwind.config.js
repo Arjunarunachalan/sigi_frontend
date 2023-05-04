@@ -6,9 +6,7 @@ module.exports = {
     colors: {
       'hover-color':'#79b59a',
       'primary-green': '#66CE69',
-    
-    
-      
+      'white': '#fff',
     },
   },
   plugins: [],
