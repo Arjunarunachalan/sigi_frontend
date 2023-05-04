@@ -13,7 +13,7 @@ const Products = () => {
     ]
     return (
         <>
-            <Table data={tableData} header={columns} />
+            <Table className="" data={tableData} header={columns} />
         </>
     )
 }

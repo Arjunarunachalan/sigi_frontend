@@ -9,7 +9,9 @@ const Layout = () => {
       <Topbar />
       <div className="flex h-full">
         <Sidebar />
+        <div className="p-8">
         <Outlet />
+        </div>
       </div>
     </div>
   );
