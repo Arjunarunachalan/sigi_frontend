@@ -2,7 +2,19 @@ import React from 'react'
 import './Table.css'
 
 
-const Table = ({data=null,columns}) => {
+const Table = ({data=null,header}) => {
+   const getTd=(key,row)=>{
+    let tableheader=header.find(header=>header.accesor===key)
+   console.log(tableheader)
+    if(typeof tableheader.render=="function"){
+      return(
+        <td>{tableheader.render(row)}</td>
+      )
+    }
+    return(
+      <td>{row[key]}</td>
+    )
+   }
    
   return (
     <div className='p-4 w-4/6 m-8'>
@@ -14,7 +26,7 @@ const Table = ({data=null,columns}) => {
       <table className='w-full p-4'>
         <thead>
             <tr className='border-solid- border-b-4 '>
-                {data &&columns.map((row)=>{
+                {data &&header.map((row)=>{
                     return(
                     <th>{row.header}</th>
                     )
@@ -26,19 +38,13 @@ const Table = ({data=null,columns}) => {
             data.map((row)=>{
                 return(
                 <tr key={row.id} className='border-gray-50 border-solid border-b-2 border-light-gray-300'>
-                    {columns.map(col=>{
-                        console.log(col.field)
-                        if(col.field=='image'){
-                            return(
-                                <div className=' flex justify-center' >
-                            <td><img src={row[col.field]} style={{width:"80px", height:"50px"}}></img></td>
-                            </div>)
-                        }else{
-                            return(<td className='text-center'>{row[col.field]}</td>)}
-                        })}
-                        
-                    
-                    
+                    {Object.keys(row).map(key=>{
+                        let value=row[key]
+                        console.log(value)
+                        return(
+                           <td>{getTd(key,row)}</td>
+                        )
+                    })}
                 </tr>
            ) })}
         </tbody>
