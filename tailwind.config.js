@@ -5,10 +5,8 @@ module.exports = {
     extend: {},
     colors: {
       'hover-color':'#79b59a',
-      'primary-green': '#2c8176',
-    
-    
-      
+      'primary-green': '#66CE69',
+      'white': '#fff',
     },
   },
   plugins: [],
