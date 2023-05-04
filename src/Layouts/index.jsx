@@ -5,11 +5,11 @@ import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
-    <div className="overflow-hidden h-screen">
+    <div className="index overflow-hidden h-screen ">
       <Topbar />
       <div className="flex h-full">
         <Sidebar />
-        <Outlet />
+        <Outlet/>
       </div>
     </div>
   );

@@ -1,4 +1,18 @@
+
+
 .nav-link:hover{
-    background:#79b59a;
-    color: white;
+    background:#c6f6d5;
+    color: #66CE69;
+}
+.nav-link:active{
+    background:#66CE69;
+    color:white;
+}
+.nav-link{
+    color:#66CE69
+}
+
+.buttonSection{
+    position: relative;
+
 }
