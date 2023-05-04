@@ -1,5 +1,4 @@
 import React from 'react'
-import './Table.css'
 
 
 const Table = ({ data = null, header, className }) => {
@@ -7,20 +6,28 @@ const Table = ({ data = null, header, className }) => {
     let tableheader = header.find(header => header.accesor === key)
     console.log(tableheader)
     if (typeof tableheader.render == "function") {
-      return (
-        <td>{tableheader.render(row)}</td>
-      )
+      return tableheader.render(row)
     }
-    return (
-      <td>{row[key]}</td>
-    )
+    return row[key]
   }
 
+  const prepareRow =( row )=>{
+    let newRow ={};
+    header.forEach((head)=>{
+      const {accesor} = head;
+      let rowKeys = Object.keys(row);
+      if(rowKeys.includes(accesor)){
+        newRow[accesor] = row[accesor];
+      }
+    })
+    return newRow;
+  }
+  
   return (
     <>
       <table className={className}>
         <thead>
-          <tr className='border-solid- border-b-4 '>
+          <tr>
             {data && header.map((row) => {
               return (
                 <th>{row.header}</th>
@@ -30,12 +37,11 @@ const Table = ({ data = null, header, className }) => {
         </thead>
         <tbody>
           {data &&
-            data.map((row) => {
+            data.map((rowData) => {
+              let row = prepareRow(rowData)
               return (
-                <tr key={row.id} className='border-gray-50 border-solid border-b-2 border-light-gray-300'>
+                <tr key={row.id}>
                   {Object.keys(row).map(key => {
-                    let value = row[key]
-                    console.log(value)
                     return (
                       <td>{getTd(key, row)}</td>
                     )
