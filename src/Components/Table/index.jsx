@@ -1,14 +1,27 @@
-import React from 'react'
+import React,{useState} from 'react'
+
+// import Downarrow from '../../assets/images/Downarrow.svg'
+// import Modal from '../modal'
+import Pagination from '../Pagination/index'
 
 
-const Table = ({ data = null, header, className }) => {
+
+
+const Table = ({ data = null, header, className,bttn}) => {
+   const initialvalue = {data:"5"}
+  const [valuel, setvaluel]= useState(initialvalue)
+  const SecondNumber = valuel.data
+  const TotalDataLength = data.length
+
+
   const getTd = (key, row) => {
     let tableheader = header.find(header => header.accesor === key)
-    console.log(tableheader)
+    
     if (typeof tableheader.render == "function") {
       return tableheader.render(row)
     }
-    return row[key]
+   return row[key]
+    
   }
 
   const prepareRow =( row )=>{
@@ -23,8 +36,21 @@ const Table = ({ data = null, header, className }) => {
     return newRow;
   }
   
+  function handleCallback(Data){
+    console.log(Data);
+    setvaluel({...valuel,"data":Data})
+
+  }
   return (
-    <>
+    <>  
+    <div className='pb-4'>
+      {bttn.map((item)=>{
+        return( 
+          <button type={item.type} name={item.name} id={item.id} onClick={item.onClick} className={item.className}>{item.name}</button>
+        )
+      })}
+    </div>
+    
       <table className={className}>
         <thead>
           <tr>
@@ -37,21 +63,23 @@ const Table = ({ data = null, header, className }) => {
         </thead>
         <tbody>
           {data &&
-            data.map((rowData) => {
+            data.slice(0,SecondNumber).map((rowData) => {
               let row = prepareRow(rowData)
               return (
                 <tr key={row.id}>
-                  {Object.keys(row).map(key => {
+                 { Object.keys(row).map(key => {
                     return (
                       <td>{getTd(key, row)}</td>
                     )
+                    
                   })}
                 </tr>
               )
             })}
         </tbody>
-
+            
       </table>
+      <Pagination callback={handleCallback} Data={TotalDataLength} />
       <div>
         {data ? null : <p>No products to display</p>}
       </div>
