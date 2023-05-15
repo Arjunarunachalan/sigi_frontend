@@ -1,10 +1,10 @@
 import React from "react";
 import './Login.css'
-function Loginform() {
+function Login() {
     return (
         <div className="wrapper d-flex align-items-center justift-content-center w-100">
         <div className="login">
-            <h2 className="mb-3">Login Form</h2>
+            <h2 className="mb-3">Login</h2>
             <div className="form_group mb-2">
                 <label htmlFor="email">Email Address</label>
                 <input type="email"/>
@@ -22,4 +22,4 @@ function Loginform() {
         </div>
     )
 }
-export default Loginform
+export default Login
