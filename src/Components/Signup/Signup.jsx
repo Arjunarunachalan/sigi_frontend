@@ -78,7 +78,7 @@ return (
     <div className="bg-slate-200 w-full h-screen flex justify-center items-center">
       <div className="w-[90%] max-w-[400px] bg-white p-[20px] rounded-[10px] shadow-lg ">
         <form className="" method="post" onSubmit={handleSubmit}>
-          <h1 className="text-4xl text-gray-900 dark:text-white font-bold text-center mb-4">
+          <h1 className="text-4xl  font-bold text-center mb-4">
             Sign Up
           </h1>
           <div className="mb-4">
