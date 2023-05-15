@@ -10,6 +10,10 @@ const Topbar = () => {
     setprofile(!profile);
   };
 
+  const removeList= ()=>{
+    setprofile(false)
+  }
+
   console.log(profile);
   return (
     <div className="topbar" style={{ backgroundColor: "white" }}>
@@ -32,10 +36,10 @@ const Topbar = () => {
 
             {profile ? (
               <>
-                <div></div>
-                <div className="absolute top-[80px] bg-white right-[15px]  rounded-[10px] p-4 shadow-lg">
+                <div >
+                <div className="absolute top-[80px] bg-white right-[15px]  rounded-[10px] p-4 shadow-lg" onClick={removeList}>
                   <ul>
-                    <li className="px-5 py-4 border border-r-0 border-l-0 border-t-0 border-b-primary-green border-opacity-50">
+                    <li className="px-5 py-4 border border-r-0 border-l-0 border-t-0 border-b-primary-green border-opacity-50" >
                       <Link>Edit Profile</Link>
                     </li>
                     <li className="px-5 py-4 border border-r-0 border-l-0 border-t-0 border-b-primary-green border-opacity-50">
@@ -45,6 +49,7 @@ const Topbar = () => {
                       <Link>Logout</Link>
                     </li>
                   </ul>
+                </div>
                 </div>
               </>
             ) : null}
