@@ -1,17 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
-import './Assets/css/global.css'
-import Signup from './Components/Signup/Signup';
-import Loginform from './Components/Login/Login';
 
+import './App.css';
+import './assets/css/global.css'
+
+import IndexRouter from './Routes/Route';
 
 function App() {
-  return (
-    <>
-    <Signup />
-    <Loginform />
-    </>
-  );
+  return <IndexRouter />;
 }
 
 export default App;
