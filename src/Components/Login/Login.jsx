@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../Signup/Signup.css";
-import apiClient from "../../Config/Axios";
+import apiClient from "../../config/axios";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
