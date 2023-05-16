@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../Signup/Signup.css";
+import apiClient from "../../Config/Axios";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -55,12 +56,23 @@ const Signup = () => {
   }
 
 
-  const handleSubmit = (e)=>{
+  const handleSubmit = async(e)=>{
     e.preventDefault()
     //validation statements
    let isValid = validateForm()
 if(isValid){
-  alert()
+//integrating axios
+try {
+  const response = await apiClient.post('/login', formData);
+  console.log('login successful:', response.data);
+  alert("connectionb suuccesfull",)
+  // Handle success, e.g., show a success message or redirect the user
+} catch (error) {
+  console.error('login failed:', error);
+  // Handle error, e.g., display an error message to the user
+
+  alert("connection failed1",error)
+}
 }
   
 
@@ -71,7 +83,7 @@ return (
   <>
     <div className="bg-slate-200 w-full h-screen flex justify-center items-center">
       <div className="w-[90%] max-w-[400px] bg-white p-[20px] rounded-[10px] shadow-lg ">
-        <form className="" method="post" onSubmit={handleSubmit}>
+        <form className="" method="post" onSubmit={handleSubmit} action="/login">
           <h1 className="text-4xl   font-bold text-center mb-4">
             LogIn
           </h1>
