@@ -9,7 +9,9 @@ const Topbar = () => {
   const profileHandler = () => {
     setprofile(!profile);
   };
-
+function handleChange(){
+  setprofile(false)
+}
   console.log(profile);
   return (
     <div className="topbar" style={{ backgroundColor: "white" }}>
@@ -35,14 +37,14 @@ const Topbar = () => {
                 <div></div>
                 <div className="absolute top-[80px] bg-white right-[15px]  rounded-[10px] p-4 shadow-lg">
                   <ul>
-                    <li className="px-5 py-4 border border-r-0 border-l-0 border-t-0 border-b-primary-green border-opacity-50">
-                      <Link>Edit Profile</Link>
+                    <li className="px-5 py-4 border border-r-0 border-l-0 border-t-0 border-b-primary-green border-opacity-50" onClick={handleChange}>
+                      <Link >Edit Profile</Link>
                     </li>
-                    <li className="px-5 py-4 border border-r-0 border-l-0 border-t-0 border-b-primary-green border-opacity-50">
-                      <Link>Change Password</Link>
+                    <li className="px-5 py-4 border border-r-0 border-l-0 border-t-0 border-b-primary-green border-opacity-50"onClick={handleChange}>
+                      <Link to={"changepassword"} >Change Password</Link>
                     </li>
-                    <li className="px-5 py-4">
-                      <Link>Logout</Link>
+                    <li className="px-5 py-4" onClick={handleChange}>
+                      <Link >Logout </Link>
                     </li>
                   </ul>
                 </div>
