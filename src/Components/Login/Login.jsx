@@ -83,7 +83,7 @@ return (
   <>
     <div className="bg-slate-200 w-full h-screen flex justify-center items-center">
       <div className="w-[90%] max-w-[400px] bg-white p-[20px] rounded-[10px] shadow-lg ">
-        <form className="" method="post" onSubmit={handleSubmit} >
+        <form className=""  onSubmit={handleSubmit} >
           <h1 className="text-4xl   font-bold text-center mb-4">
             LogIn
           </h1>
