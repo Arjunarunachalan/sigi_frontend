@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 
 // import Downarrow from '../../assets/images/Downarrow.svg'
 // import Modal from '../modal'
@@ -10,7 +10,13 @@ import Pagination from '../Pagination/index'
 const Table = ({ data = null, header, className,bttn}) => {
    const initialvalue = {data:"5"}
   const [valuel, setvaluel]= useState(initialvalue)
-  const SecondNumber = valuel.data
+  const [startValue,setStartValue]=useState(0)
+  const [endValue,setEndValue]=useState(5)
+
+  useEffect(()=>{
+    setEndValue(parseInt(startValue)+parseInt(valuel.data))
+    console.log(parseInt(startValue)+parseInt(valuel.data))
+  },[startValue])
   const TotalDataLength = data.length
 
 
@@ -39,7 +45,14 @@ const Table = ({ data = null, header, className,bttn}) => {
   function handleCallback(Data){
     console.log(Data);
     setvaluel({...valuel,"data":Data})
-
+  }
+  function tableVal(val){
+   
+    setStartValue(val*valuel.data)
+    // setEndValue(parseInt(startValue)+parseInt(valuel.data))
+    // console.log(parseInt(startValue)+parseInt(valuel.data))
+    
+    
   }
   return (
     <>  
@@ -63,7 +76,9 @@ const Table = ({ data = null, header, className,bttn}) => {
         </thead>
         <tbody>
           {data &&
-            data.slice(0,SecondNumber).map((rowData) => {
+            data.slice(startValue,endValue).map((rowData) => {
+              console.log(startValue)
+              console.log(endValue)
               let row = prepareRow(rowData)
               return (
                 <tr key={row.id}>
@@ -79,7 +94,7 @@ const Table = ({ data = null, header, className,bttn}) => {
         </tbody>
             
       </table>
-      <Pagination callback={handleCallback} Data={TotalDataLength} />
+      <Pagination callback={handleCallback} Data={TotalDataLength} pageVal={tableVal} />
       <div>
         {data ? null : <p>No products to display</p>}
       </div>

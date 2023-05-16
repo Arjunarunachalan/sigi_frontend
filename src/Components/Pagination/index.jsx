@@ -13,8 +13,8 @@ const Pagination =(props) => {
     const [valuel, setvaluel]= useState(initialvalue)
     const[page,setPage]=useState(1)
     const pages=Math.ceil(parseInt(props.Data)/parseInt(valuel.data))
-    console.log(parseInt(valuel.data))
-    console.log(pages)
+    
+    
     const Selected =()=>{
         setSelect(true)
      
@@ -24,19 +24,21 @@ const Pagination =(props) => {
        const clicked =(e)=>{
          var data =e.target.value
          setvaluel({...valuel,"data":data})
-         props.callback(data);
+         props.callback(data,page);
          setSelect(false)  
          setPage(1) 
        }
        const prevPage=()=>{
         if(page>1){
           setPage((prev)=>prev-1)
+          props.pageVal(parseInt(page));
         }
        }
        const nxtPage=()=>{
-        console.log(pages)
+        
         if(page<pages){
         setPage((prev)=>prev+1)
+        props.pageVal(parseInt(page));
         }
        }
        
