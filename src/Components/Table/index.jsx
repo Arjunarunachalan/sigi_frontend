@@ -2,17 +2,17 @@ import React,{useEffect, useState} from 'react'
 
 // import Downarrow from '../../assets/images/Downarrow.svg'
 // import Modal from '../modal'
-import Pagination from '../Pagination/index'
 
 
 
 
 const Table = ({ data, header, className,bttn}) => {
-   const initialvalue = {data:"5"}
+  console.log(data)
+  const initialvalue = {data:"5"}
   const [valuel, setvaluel]= useState(initialvalue)
   const [startValue,setStartValue]=useState(0)
   const [endValue,setEndValue]=useState(5)
-  const [tableRow,setTableRow]=useState(data)
+  const [tableRow,setTableRow]=useState()
   console.log(tableRow,data,"latest");
 
   // useEffect(()=>{
@@ -100,7 +100,7 @@ const Table = ({ data, header, className,bttn}) => {
         </tbody>
             
       </table>
-      <Pagination onRowsPerTableChange={onRowsPerTableChange} Data={TotalDataLength} pageVal={tableVal} data={tableRow} />
+      {/* <Pagination onRowsPerTableChange={onRowsPerTableChange} Data={TotalDataLength} pageVal={tableVal} data={tableRow} /> */}
       <div>
         {data ? null : <p>No products to display</p>}
       </div>
