@@ -7,16 +7,18 @@ import Pagination from '../Pagination/index'
 
 
 
-const Table = ({ data = null, header, className,bttn}) => {
+const Table = ({ data, header, className,bttn}) => {
    const initialvalue = {data:"5"}
   const [valuel, setvaluel]= useState(initialvalue)
   const [startValue,setStartValue]=useState(0)
   const [endValue,setEndValue]=useState(5)
+  const [tableRow,setTableRow]=useState(data)
+  console.log(tableRow,data,"latest");
 
-  useEffect(()=>{
-    setEndValue(parseInt(startValue)+parseInt(valuel.data))
-    console.log(parseInt(startValue)+parseInt(valuel.data))
-  },[startValue])
+  // useEffect(()=>{
+  //   setEndValue(parseInt(startValue)+parseInt(valuel.data))
+  //   console.log(parseInt(startValue)+parseInt(valuel.data))
+  // },[startValue,valuel])
   const TotalDataLength = data.length
 
 
@@ -42,10 +44,14 @@ const Table = ({ data = null, header, className,bttn}) => {
     return newRow;
   }
   
-  function handleCallback(Data){
-    console.log(Data);
-    setvaluel({...valuel,"data":Data})
+  function onRowsPerTableChange(limit){
+   let changedRows= data.splice(0,limit)
+   console.log(tableRow,"data");
+    setTableRow(changedRows)
+    console.log(changedRows,limit,"hello");
   }
+
+
   function tableVal(val){
    
     setStartValue(val*valuel.data)
@@ -54,6 +60,8 @@ const Table = ({ data = null, header, className,bttn}) => {
     
     
   }
+  console.log(tableRow,"cj=");
+
   return (
     <>  
     <div className='pb-4'>
@@ -75,10 +83,8 @@ const Table = ({ data = null, header, className,bttn}) => {
           </tr>
         </thead>
         <tbody>
-          {data &&
-            data.slice(startValue,endValue).map((rowData) => {
-              console.log(startValue)
-              console.log(endValue)
+          {tableRow &&
+            tableRow.map((rowData) => {
               let row = prepareRow(rowData)
               return (
                 <tr key={row.id}>
@@ -94,12 +100,13 @@ const Table = ({ data = null, header, className,bttn}) => {
         </tbody>
             
       </table>
-      <Pagination callback={handleCallback} Data={TotalDataLength} pageVal={tableVal} />
+      <Pagination onRowsPerTableChange={onRowsPerTableChange} Data={TotalDataLength} pageVal={tableVal} data={tableRow} />
       <div>
         {data ? null : <p>No products to display</p>}
       </div>
     </>
   )
 }
+
 
 export default Table
