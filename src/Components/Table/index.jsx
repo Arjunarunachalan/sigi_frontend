@@ -16,7 +16,7 @@ const Table = ({ data = null, header, className,bttn}) => {
   useEffect(()=>{
     setEndValue(parseInt(startValue)+parseInt(valuel.data))
     console.log(parseInt(startValue)+parseInt(valuel.data))
-  },[startValue])
+  },[startValue,valuel])
   const TotalDataLength = data.length
 
 
