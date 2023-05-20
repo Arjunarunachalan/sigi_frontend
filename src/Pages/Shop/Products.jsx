@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import Table from '../../Components/Table'
-import apiClient from '../../config/axios'
+import apiClient from '../../config/axiosConfig'
 
 
 const Products = () => {
