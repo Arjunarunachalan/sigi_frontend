@@ -1,54 +1,33 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import Table from '../../Components/Table'
-import { tableData } from './Tabledata'
+import apiClient from '../../config/axios'
 
 
 const Products = () => {
-    const   columns = [
-        {
-            accesor: "image", header: "IMAGE",
-            render: (data) => (<img src={data.image} alt="product" style={{ height: "50px", width: "70px" }}></img>)
-        },
-        { accesor: "name", header: "NAME" },
-        { accesor: "id", header: "Sl. No" },
-        { accesor: "price", header: "PRICE" },
+    const[productList,setProductList]=useState([])
+    const headers=[
+        {accesor:"name", header: "NAME" },
+        {accesor:"price", header: "Price" },
+        {accesor:"description", header: "Description" },
+
     ]
-    const bttn=[
-        {
-            type:"button",
-            name:"button1",
-            id:"",
-            className:"bg-white w-[100px] text-green font-bold me-4 py-2 px-4  hover:bg-primary-green hover:bg-opacity-25 border rounded"
-        },
-        {
-            type:"button",
-            name:"button2",
-            id:"",
-            className:"bg-white w-[100px] text-green font-bold me-4 py-2 px-4  hover:bg-primary-green hover:bg-opacity-25 border  rounded"
-        },
-        {
-            type:"button",
-            name:"button3",
-            id:"",
-            className:"bg-white w-[100px] text-green font-bold me-4 py-2 px-4  hover:bg-primary-green hover:bg-opacity-25 border  rounded"
-        },
-        {
-            type:"button",
-            name:"button4",
-            id:"",
-            className:"bg-white w-[100px] text-green font-bold me-4 py-2 px-4  hover:bg-primary-green hover:bg-opacity-25 border  rounded"
-        },
-        {
-            type:"button",
-            name:"button5",
-            id:"",
-            className:"bg-white w-[100px] text-green font-bold me-4 py-2 px-4  hover:bg-primary-green hover:bg-opacity-25 border rounded"
-        }
+    useEffect(()=>{
+     fetchData() 
+    },[])
+    const fetchData=async()=> {
+      try {
+        const response = await apiClient.get('/products/list')
+        setProductList(response.data.data)
+      } catch (error) {
+        console.error('Error fetching data:', error);
         
-    ]
+      }
+    }
     return (
         <>
-            <Table className="s-table" data={tableData} header={columns} bttn={bttn} />
+          
+            <Table className="s-table" data={productList} header={headers} />
+            
         </>
     )
 }
