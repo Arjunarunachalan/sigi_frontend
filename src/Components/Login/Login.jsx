@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../Signup/Signup.css";
-import apiClient from "../../config/axios";
+import apiClient from "../../Config/Axios";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -115,8 +115,13 @@ return (
               Submit
             </button>
           </div>
-          <div className="mb-4  flex justify-center items-center">
+          <div className="mb-4 p-2">
+            <div className="flex justify-center items-center">
             <a href="/signup">Create an  Account?</a>
+            </div>
+            <div className="forgotpassword flex justify-center items-center ">
+            <a href="/forgotpassword"> forgetpassword</a>
+            </div>
           </div>
         </form>
       </div>

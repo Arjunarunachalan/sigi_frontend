@@ -10,8 +10,8 @@ export const  Outer=(props)=>{
     <form className="" method="post"  >
       <div className=" w-full md:w-[400px] max-w-[400px] bg-white p-[20px] rounded-[10px] shadow-lg h-4/5  justify-center flex">
       <div className="p-[20px]">
-        <span className="header w-full text-[30px] justify-center items-center flex h-1/5">{props.Header}</span>
-        <span>{props.body} </span>  
+        <span className="header w-full text-[30px] justify-center items-center flex h-1/5 ">{props.Header}</span>
+        <span className="p-4">{props.body} </span>  
         <span>
        { props.button}
         </span>

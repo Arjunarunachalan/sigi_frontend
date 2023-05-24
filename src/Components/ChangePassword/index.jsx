@@ -47,7 +47,7 @@ export const Form=(props)=>{
   <>
   <div className="main w-full">
   <label className='label pb-2'>
-  <span className='span  '>{props.span}</span>
+  <span className='span'>{props.span}</span>
    {props.input}
   </label>
   </div>
