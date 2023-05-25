@@ -5,6 +5,7 @@ import Layout from "../Layouts";
 import Products from "../Pages/Shop/Products";
 import Login from "../Components/Login/Login";
 import ChangePassword from "../Components/ChangePassword";
+import Forgotpassword from "../Components/forgot/forgotpassword";
 const IndexRouter = () => {
   return (
     <BrowserRouter>
@@ -14,6 +15,7 @@ const IndexRouter = () => {
          <Route path="/" element={<Layout />}>
           <Route path="products" element={<Products />} />
           <Route path="changepassword" element={<ChangePassword/>} />
+          <Route path="forgotpassword" element={<Forgotpassword/>}/>
         </Route>
         {/* <ShopRoute /> */}
       </Routes>

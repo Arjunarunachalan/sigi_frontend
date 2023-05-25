@@ -1,5 +1,5 @@
 import React from 'react'
-import { Outer, SubmitButton } from '../Reuse'
+import { Box, SubmitButton } from '../Reuse'
 import "./index.css"
 import HigherFunction from '../Reuse/HigherFunction'
 
@@ -8,7 +8,7 @@ function ChangePassword(props) {
   const {initialValue,onchange,Error,handlesubmit }=props
   console.log(initialValue);  
   return (
-    <Outer
+    <Box
     Header={"Change Password"}
     body={<>
     <Form 
@@ -47,7 +47,7 @@ export const Form=(props)=>{
   <>
   <div className="main w-full">
   <label className='label pb-2'>
-  <span className='span  '>{props.span}</span>
+  <span className='span'>{props.span}</span>
    {props.input}
   </label>
   </div>
