@@ -1,6 +1,5 @@
 import React from 'react'
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
-import Signup from '../Components/Signup/Signup'
 import Products from '../Pages/Shop/Products'
 
 const ShopRoute = () => {
@@ -10,7 +9,7 @@ const ShopRoute = () => {
         <Routes >
             
             
-            <Route path="/shop/products" element={Products} />
+            <Route path="/shop/products" element={<Products />} />
 
             
 

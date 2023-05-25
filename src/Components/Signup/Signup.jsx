@@ -66,6 +66,7 @@ const Signup = () => {
     e.preventDefault()
     //validation statements
    let isValid = validateForm()
+   console.log(isValid)
 if(isValid){
   
   try {
@@ -137,7 +138,7 @@ return (
           <div className="mb-4 flex">
             <input type="checkbox" name="role" id="role" onChange={handleChange} />
             <label htmlFor="role" className="role">
-              Signup As Shope
+              Signup As Shop
             </label>
           </div>
           <div className="mb-4">

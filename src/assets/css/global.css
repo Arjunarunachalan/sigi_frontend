@@ -34,7 +34,6 @@ body{
 .sidebarlists{
     position: absolute;
     top: 50;
-   
     border-radius: 10px;
 }
 .sidebarlists:hover{
