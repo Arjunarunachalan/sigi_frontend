@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.css"
 
-export const  Outer=(props)=>{
+export const  Box=(props)=>{
 
     return(
         <>

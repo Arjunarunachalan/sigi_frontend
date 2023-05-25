@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { Outer, SubmitButton } from '../Reuse'
+import { Box, SubmitButton } from '../Reuse'
 import { Form } from '../ChangePassword'
+import apiClient from '../../Config/Axios'
 
 
 function Forgotpassword() {
@@ -9,14 +10,14 @@ function Forgotpassword() {
  const[mailerr, setmailerr]=useState("")
 
 
- const [Password,setPassword]=useState("")
+ const [Email,setEmail]=useState("")
 
 
  const PasswordTextChanged=(e)=>{
  const value = e.target.value
-  setPassword({...Password,value}) 
-  console.log(Password)
-  validater(Password)
+  setEmail({...Email,value}) 
+  console.log(Email)
+  validater(Email)
 
 
  }
@@ -28,20 +29,37 @@ function Forgotpassword() {
   if (!value) {
     Err.InvalidEmail="Enter the email"
   }
-  setmailerr(Err)
 
   if(Err.InvalidEmail){
+   setmailerr(Err)
    return(false)
   }else{
+    setmailerr(Err)
     return(true)
   }
 
  }
- const isvalidate = validater
-
- const fileSubmited=()=>{
-
  
+
+ const fileSubmited = (e)=>{
+  e.preventDefault()
+ 
+   apiClient.post('/forgot-password', Email).then((responce)=>{
+  
+     try {
+      alert("sucessfully")
+      setemailform(false)
+      setforgetForm(true)
+     } catch (error) {
+      alert("somethig error")
+      
+     }
+
+    })
+  
+
+  
+
  }
 
 
@@ -50,18 +68,17 @@ function Forgotpassword() {
     <>
     {
     forgetForm &&
-    <Outer
+    <Box
     Header="forgot password"
     body={
     <Form
        span={"Enter email"}
-       input={<input className='input' type='email' name='email' value={Password['']} onChange={PasswordTextChanged}  />}
+       input={<input className='input' type='email' name='email' value={Email['']} onChange={PasswordTextChanged}  />}
       />}
     button={<SubmitButton
-      id="submit"
       classname="submit"
       text="Submit"
-      onsubmit={fileSubmited}
+      onSubmit={fileSubmited}
       />}
     />
     }{
@@ -75,7 +92,7 @@ export const EmailForm=()=>{
   return(
   <>
     
-      <Outer
+      <Box
     Header="Enter OTP"
     body={
     <Form
