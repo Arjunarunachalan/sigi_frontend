@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../Signup/Signup.css";
-import apiClient from "../../Config/Axios";
+import apiClient from "../../config/axiosConfig";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -64,7 +64,8 @@ if(isValid){
 //integrating axios
 try {
   const response = await apiClient.post('/login', formData);
-  console.log('login successful:', response.data);
+  localStorage.setItem("token",response.data.token)
+  console.log('login successful:', response.data.token);
   alert("connectionb suuccesfull",)
   // Handle success, e.g., show a success message or redirect the user
 } catch (error) {

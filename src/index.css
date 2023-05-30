@@ -16,4 +16,8 @@ code {
     monospace;
 }.forgotpassword{
   color: red;
+}.Otpcolomun{
+  -moz-appearance: textfield;
+  appearance: textfield
+
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Signup.css";
-import apiClient from "../../Config/Axios";
+import apiClient from "../../config/axiosConfig"
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -67,13 +67,13 @@ const Signup = () => {
     //validation statements
    let isValid = validateForm()
    console.log(isValid)
-if(isValid){
+  if(isValid){
   
   try {
-    const response = await apiClient.post('/signup', formData);
-    console.log('Signup successful:', response.data);
-    alert("connectionb suuccesfull",)
+    await apiClient.post('/signup', formData);
+    alert("connection suuccesful",)
     // Handle success, e.g., show a success message or redirect the user
+   //console.log("incommingdata",incommingdata);
   } catch (error) {
     console.error('Signup failed:', error);
     // Handle error, e.g., display an error message to the user

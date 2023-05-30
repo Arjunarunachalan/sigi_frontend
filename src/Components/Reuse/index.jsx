@@ -6,8 +6,6 @@ export const  Box=(props)=>{
     return(
         <>
     <div className=" main bg-slate-200 w-full h-full p-5 flex justify-center items-center">
-        
-    <form className="" method="post"  >
       <div className=" w-full md:w-[400px] max-w-[400px] bg-white p-[20px] rounded-[10px] shadow-lg h-4/5  justify-center flex">
       <div className="p-[20px]">
         <span className="header w-full text-[30px] justify-center items-center flex h-1/5 ">{props.Header}</span>
@@ -20,7 +18,6 @@ export const  Box=(props)=>{
         </div>
         </div>
       </div>
-      </form>
       </div>
         </>
     )
@@ -28,7 +25,7 @@ export const  Box=(props)=>{
 
 export const SubmitButton = (props) => {
   return (
-    <button className={props.classname} id={props.id} onSubmit={props.handlesubmit}>
+    <button className={props.classname} id={props.id} onClick={props.handlesubmit}>
   { props.text}
   </button>
   )
